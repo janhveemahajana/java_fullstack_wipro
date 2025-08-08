@@ -3666,3 +3666,7 @@ java.io.EOFException: null
 2025-08-08T12:28:03.278+05:30  WARN 26956 --- [logdemo] [http-nio-8080-exec-2] c.w.logdemo.controller.HomeController    : --WARN--Janhvee
 2025-08-08T12:33:03.615+05:30 ERROR 26956 --- [logdemo] [http-nio-8080-exec-3] c.w.logdemo.controller.HomeController    : --Error--Janhvee
 2025-08-08T12:33:03.615+05:30  WARN 26956 --- [logdemo] [http-nio-8080-exec-3] c.w.logdemo.controller.HomeController    : --WARN--Janhvee
+2025-08-08T13:11:53.638+05:30 ERROR 16496 --- [logdemo] [http-nio-8080-exec-1] c.w.logdemo.controller.HomeController    : --Error--Janhvee
+2025-08-08T13:11:53.748+05:30  WARN 16496 --- [logdemo] [http-nio-8080-exec-1] c.w.logdemo.controller.HomeController    : --WARN--Janhvee
+2025-08-08T13:52:22.268+05:30 ERROR 29884 --- [logdemo] [http-nio-8080-exec-1] c.w.logdemo.controller.HomeController    : --Error--Janhvee
+2025-08-08T13:52:22.271+05:30  WARN 29884 --- [logdemo] [http-nio-8080-exec-1] c.w.logdemo.controller.HomeController    : --WARN--Janhvee
