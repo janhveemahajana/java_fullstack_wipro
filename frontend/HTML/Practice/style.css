@@ -1,0 +1,35 @@
+body {
+  color: azure;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the cards horizontally */
+  gap: 20px;
+}
+
+h4,
+p {
+  color: #000;
+}
+
+.mainleft {
+  width: calc(
+    50% - 20px
+  ); /* Adjust width to account for gap, e.g., 50% minus half of the gap on each side */
+  /* Add other card styling like border, padding, background-color etc. */
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+
+.mainright {
+  width: calc(
+    50% - 20px
+  ); /* Adjust width to account for gap, e.g., 50% minus half of the gap on each side */
+  /* Add other card styling like border, padding, background-color etc. */
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}

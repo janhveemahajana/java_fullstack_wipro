@@ -1,0 +1,15 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 50px;
+}
+.option {
+  background: #dbcc6d;
+  margin: 5px auto;
+  padding: 10px;
+  cursor: pointer;
+  width: 250px;
+}
+.option:hover {
+  background: #ddd;
+}

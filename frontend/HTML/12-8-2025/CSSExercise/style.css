@@ -1,0 +1,28 @@
+*{
+    background: #e3e0e4;
+}
+
+#main-heading {
+  text-align: center;
+  color: green;
+  font-size: 40px;
+}
+
+h1, h2, h3, h4{
+    color: rgb(217, 77, 133);
+}
+
+p{
+    color: blue;
+}
+
+.class1 {
+    background-color: lightgray;
+    padding: 10px;
+    color: rgb(255, 0, 21);
+}
+
+.class2{
+    background-color: rgb(173, 230, 184);
+    padding: 10px;
+}

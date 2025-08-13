@@ -1,0 +1,194 @@
+/********** COMMON CSS STARTS **********/  
+
+* {
+	font-family: Roboto, sans-serif, arial;
+	margin:0px;
+	padding:0px;
+	box-sizing:border-box;
+	font-size:16px;
+}
+a {
+	text-decoration:none;
+}
+:target {
+	display:block!important;
+}
+
+/********** COMMON CSS END **********/
+
+/********** HEADER CSS STARTS **********/  
+
+header {
+	box-shadow: 0px 0px 10px 0px #0000001f;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.container {
+	width:100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding:0px 10px;
+}
+.heads {
+	margin:10px 0px 10px 0px;
+	display:flex;
+}
+.logo img{
+	max-width:10%;
+	min-width:15px;
+}
+.menu {
+	max-width:70%;
+	min-width:100px;
+	margin-left: auto;
+	text-align:center;
+}
+.menu ul {
+	display: flex;
+	list-style: none;
+	gap: 25px;
+	margin:0px;
+	margin-top:12px;
+}
+.menu ul a {
+	color: black;
+	font-weight:600;
+	color:black;
+}
+.openicon {
+	display:none;
+	position: relative;
+  top: -3px;
+  float: right;
+  font-size: 30px;
+  color: black;
+  right: 8px;
+}
+.closeicon {
+	display:none;
+	float:right;
+	font-size: 28px;
+	color: black;
+}
+
+/* For mobile version css */ 
+
+@media screen and (max-width: 480px) {
+
+.openicon, .closeicon {
+ display:block;
+}
+#menu {
+  position: fixed;
+  left: 0px;
+  background: #00000094;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  text-align: left;
+  display: none;
+}
+.menu-inner{
+  background: white;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  width: 70%;
+  position: absolute;
+  padding: 20px;
+}
+#menu ul {
+  display: block;
+  margin-top: 45px;
+}
+#menu ul li {
+  margin-bottom:25px;
+}
+
+}
+
+/********** HEADER CSS END **********/  
+
+
+/********** BANNER CSS STARTS **********/  
+
+.w-100 {
+  width:100%;
+}
+.slider {
+  object-fit: cover;
+  width: 100%;
+  height:600px;
+}
+
+  /***For IPAD***/
+
+@media screen and (max-width: 768px) {
+  .slider {
+    height:350px;
+	}	
+}
+
+  /***For MOBILE***/
+
+@media screen and (max-width: 480px) {
+  .slider {
+    height:180px;
+	}	
+}
+
+/********** BANNER CSS END **********/  
+
+.aboutus{
+    margin:50px 0px;
+	display: grid;
+	gap: 30px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    background-color: rgb(241, 235, 228);
+    height: 500px;
+    width: 100%;
+    padding: 20px;
+}
+
+/********** FOOTER CSS STARTS **********/  
+
+footer{
+	background:#37474F;
+	padding:40px 0px 20px 0px;
+}
+.foots {
+	padding:20px 0px 20px 20px;
+	display: grid;
+	gap: 50px;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	margin:0px auto;
+}
+.foots p{
+	padding-right:60px;
+	font-size:16px;
+	line-height:28px;
+}
+.col-foot, .col-foot a {
+	color:white;
+}
+.col-foot h2 {
+	font-size:18px;
+	margin-bottom:25px;
+}
+.col-foot li {
+	font-size:14px;
+	color:white;
+	margin-bottom:15px;
+	line-height:26px;
+	list-style-type: disclosure-closed;
+	width:38%;
+	float:left;
+	margin-left:5%;
+}
+.contactus li{
+	width:90%;
+}
+
+
+/********** FOOTER CSS END **********/

@@ -1,0 +1,162 @@
+/********** COMMON CSS STARTS **********/
+
+* {
+  font-family: Roboto, sans-serif, arial;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+}
+:target {
+  display: block !important;
+}
+
+/********** COMMON CSS END **********/
+
+/********** HEADER CSS STARTS **********/
+
+header {
+  box-shadow: 0px 0px 10px 0px #0000001f;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 10px;
+}
+.heads {
+  margin: 10px 0px 10px 0px;
+  display: flex;
+}
+.logo img {
+  max-width: 10%;
+  min-width: 15px;
+}
+.menu {
+  max-width: 70%;
+  min-width: 100px;
+  margin-left: auto;
+  text-align: center;
+}
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0px;
+  margin-top: 12px;
+}
+.menu ul a {
+  color: black;
+  font-weight: 600;
+  color: black;
+}
+.openicon {
+  display: none;
+  position: relative;
+  top: -3px;
+  float: right;
+  font-size: 30px;
+  color: black;
+  right: 8px;
+}
+.closeicon {
+  display: none;
+  float: right;
+  font-size: 28px;
+  color: black;
+}
+
+/* For mobile version css */
+
+@media screen and (max-width: 480px) {
+  .openicon,
+  .closeicon {
+    display: block;
+  }
+  #menu {
+    position: fixed;
+    left: 0px;
+    background: #00000094;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    text-align: left;
+    display: none;
+  }
+  .menu-inner {
+    background: white;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    width: 70%;
+    position: absolute;
+    padding: 20px;
+  }
+  #menu ul {
+    display: block;
+    margin-top: 45px;
+  }
+  #menu ul li {
+    margin-bottom: 25px;
+  }
+}
+
+/********** HEADER CSS END **********/
+
+/********** PRODUCT SECTION CSS STARTS **********/
+
+.product {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 50px 0px;
+  display: grid;
+  gap: 20px;
+}
+.pro {
+  border: 1px solid #d0d0d0;
+  padding: 0px 0px 30px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pro img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.pro h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0px 5px 0px;
+}
+.pro strike {
+  font-size: 14px;
+}
+.pro b {
+  font-size: 22px;
+  font-weight: 600;
+  margin-left: 15px;
+  color: rgb(234, 174, 159);
+}
+.pro a {
+  text-align: center;
+  background: rgb(234, 174, 159);
+  color: white;
+  padding: 11px 4px;
+  width: 200px;
+  display: inline-block;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+
+.pro a:hover {
+  background: rgb(239, 161, 125);
+  color: white;
+}
+
+/********** PRODUCT SECTION CSS END **********/
