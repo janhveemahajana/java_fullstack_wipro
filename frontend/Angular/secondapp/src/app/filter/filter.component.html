@@ -1,0 +1,17 @@
+<p>Ex 14</p>
+
+<div style="width: 250px; margin: 20px">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search names..."
+    (input)="filterList($event)"
+  />
+
+  <br />
+  <select size="6" class="form-control" style="width: 100%">
+    @for (name of filteredlist; track $index) {
+    <option>{{ name }}</option>
+    }
+  </select>
+</div>

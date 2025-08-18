@@ -1,0 +1,19 @@
+<p>Ex 13</p>
+
+<!-- Ex 13 -->
+<select [(ngModel)]="color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="default">Default</option>
+</select>
+
+@switch (color) { @case ("red") {
+<div style="color: red">Red Color</div>
+} @case ("green") {
+<div style="color: green">Green Color</div>
+} @case ("blue") {
+<div style="color: blue">Blue Color</div>
+} @default {
+<div style="color: black">Default Color Black</div>
+} }
