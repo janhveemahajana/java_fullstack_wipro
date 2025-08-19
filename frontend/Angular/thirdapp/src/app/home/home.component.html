@@ -1,0 +1,14 @@
+<p>Home Products</p>
+
+<!-- <div class="card-container">
+  @for (fruit of fruits; track $index){
+
+<app-display-list producttitle={{fruit.producttitle}} productdescription={{fruit.productdescription}} productimg={{fruit.productimg}}></app-display-list>
+}
+</div> -->
+ 
+<div class="card-container">
+  @for (fruit of fruits; track $index) {
+    <app-display-list [fruit]="fruit" (btnClick)="remove($event)"></app-display-list>
+  }
+</div>

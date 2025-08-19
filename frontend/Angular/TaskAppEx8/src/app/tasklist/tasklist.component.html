@@ -1,0 +1,17 @@
+<div class="app">
+  <h3>Task List</h3>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Task Description</th>
+      <th>Category</th>
+      <th>Action</th>
+    </tr>
+    @for (task of tasks; track task.id) {
+    <tr>
+      <td>{{ task.description }}</td>
+      <td>{{ task.category }}</td>
+      <td><button (click)="removeTask(task.id)">Delete</button></td>
+    </tr>
+    }
+  </table>
+</div>

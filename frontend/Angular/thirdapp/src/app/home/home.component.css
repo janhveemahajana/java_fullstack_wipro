@@ -1,0 +1,13 @@
+/* home.component.css */
+.card-container {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  gap: 16px;
+  margin: 20px;
+}
+ 
+p {
+  text-align: center;
+  color: green;
+  font-size: 40px;
+}

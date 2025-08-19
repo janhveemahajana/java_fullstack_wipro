@@ -1,0 +1,24 @@
+<p>Add New Task</p>
+
+<div class="app">
+  <div class="main">
+    <div>
+      <label>Task Description -</label>
+      <input type="text" [(ngModel)]="description" />
+    </div>
+
+    <div>
+      <label>Task Description -</label>
+      <select [(ngModel)]="category">
+        <option value="" selected>--Select--</option>
+        <option value="Work">Work</option>
+        <option value="Study">Study</option>
+        <option value="Exercise">Exercise</option>
+      </select>
+    </div>
+    
+    <div>
+      <button (click)="addTask()">Add</button>
+    </div>
+  </div>
+</div>

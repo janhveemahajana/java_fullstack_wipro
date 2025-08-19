@@ -1,0 +1,25 @@
+.app{
+    display: grid;
+    place-items: center;
+}
+
+p{
+    text-align: center;
+    color: red;
+    font-size: large;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    gap: 20px;
+    background-color: aquamarine;
+    padding: 12px;
+}
+
+button{
+    background-color: rgb(208, 200, 217);
+    border: 1px solid black;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+}

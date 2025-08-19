@@ -1,0 +1,26 @@
+ <!-- <p>display-list</p> -->
+<!-- 
+<div class="card" style="width: 18rem">
+  <div class="fruit-card">
+    <img
+      class="card-img-top"
+      [src]="fruit.img"
+      alt="{{producttitle}}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ producttitle }}</h5>
+      <p class="card-text">{{ productdescription }}</p>
+    </div>
+  </div>
+</div>  -->
+
+<div class="card" style="width: 18rem">
+  <div class="fruit-card">
+    <img class="card-img-top" [src]="fruit.productimg" alt="{{fruit.producttitle}}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ fruit.producttitle }}</h5>
+      <p class="card-text">{{ fruit.productdescription }}</p>
+    </div>
+    <button (click)="onClick(fruit.producttitle)">Remove</button>
+  </div>
+</div>

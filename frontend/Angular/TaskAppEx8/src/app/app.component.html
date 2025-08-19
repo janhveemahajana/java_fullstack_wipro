@@ -1,0 +1,5 @@
+<h2>TASK HOME</h2>
+
+<app-task (taskAdded)="addTask($event)"></app-task>
+
+<app-tasklist [tasks]="tasks" (deleteTask) = "deleteTask($event)"></app-tasklist>

@@ -1,0 +1,12 @@
+.app {
+  display: grid;
+  place-items: center;
+}
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+}
+button {
+    color: rgb(218, 58, 58);
+}
