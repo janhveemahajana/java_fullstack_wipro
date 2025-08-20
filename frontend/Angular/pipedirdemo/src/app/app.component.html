@@ -1,0 +1,22 @@
+<p>EX1</p>
+
+<input type="text" [(ngModel)]="userInput" placeholder="Type something..." />
+
+<p>Text - {{ userInput | uppercase }}</p>
+
+<br />
+
+<p>EX2</p>
+<input type="date" [(ngModel)]="selectedDate" />
+
+<p>Date - {{ selectedDate | date : "short" }}</p>
+
+<p>EX3</p>
+<input type="number" [(ngModel)]="celsius" placeholder="Enter °C" />
+
+@if (celsius !== null && celsius !== undefined) {
+<p>{{ celsius | ctof:'F' }}</p>
+}
+<br /><br />
+
+<span appCustomDir>Janhvee</span>
