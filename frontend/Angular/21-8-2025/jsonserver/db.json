@@ -1,0 +1,25 @@
+{
+  "vehicle": [
+    {
+      "make": "Marutisuzuki",
+      "fuelType": "Petrol",
+      "model": "Swift",
+      "price": 1000000,
+      "id": "a77b"
+    },
+    {
+      "make": "Marutisuzuki",
+      "fuelType": "CNG",
+      "model": "Swift Desire",
+      "price": 180000,
+      "id": "fcc1"
+    },
+    {
+      "id": "d4ee",
+      "make": "Honda2",
+      "fuelType": "Diesel",
+      "model": "Activa",
+      "price": 90000
+    }
+  ]
+}
