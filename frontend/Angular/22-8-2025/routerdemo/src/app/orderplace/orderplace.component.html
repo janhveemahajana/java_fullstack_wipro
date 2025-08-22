@@ -1,0 +1,22 @@
+<p>orderplace works!</p>
+<h2>Place Order</h2>
+
+<div>
+  <label for="product">Select Product:</label>
+  <select [(ngModel)]="selectedProductId" id="product">
+    <option [ngValue]="null">-- Select --</option>
+    @for (p of products; track $index) {
+      <option [ngValue]="p.id">{{ p.name }} (Available: {{ p.quantity }})</option>
+    }
+  </select>
+</div>
+
+<div>
+  <label for="qty">Quantity:</label>
+  <input type="number" [(ngModel)]="purchaseQty" id="qty" min="1" />
+</div>
+
+<button (click)="placeOrder()">Place Order</button>
+
+<p *ngIf="errorMsg" style="color: red">{{ errorMsg }}</p>
+<p *ngIf="successMsg" style="color: green">{{ successMsg }}</p>

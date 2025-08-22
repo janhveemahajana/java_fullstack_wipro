@@ -1,0 +1,19 @@
+<h2>Order History</h2>
+
+<table border="1" *ngIf="orderHistory.length > 0">
+  <tr>
+    <th>Date</th>
+    <th>Product</th>
+    <th>Quantity</th>
+  </tr>
+  @for (order of orderHistory; track $index) {
+  <tr>
+    <td>{{ order.orderDate | date : 'short' }}</td>
+    <td>{{ order.productName }}</td>
+    <td>{{ order.quantityPurchased }}</td>
+  </tr>
+  }
+</table>
+
+<p *ngIf="orderHistory.length === 0">No orders placed yet.</p>
+<p *ngIf="errorMsg" style="color: red">{{ errorMsg }}</p>
