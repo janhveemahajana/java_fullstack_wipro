@@ -18,13 +18,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	
-	@Column(name="order_number")
-    String orderNumber;
+	@Column(name="order_id")
+    String orderId;
 	
-	@Column(name="order_value")
-    double orderValue;
+	@Column(name="user_id")
+    String userId;
 	
-	@Column(name="order_status")
-    String orderStatus;
+	@Column(name="food_id")
+    double foodId;
+	
+	@Column(name="order_price")
+    String torderPrice;
 	
 }

@@ -1,0 +1,23 @@
+<div class="container mb-5">
+  <div class="row">
+    @for (food of foods; track $index) {
+    <div class="col-md-3 mb-4">
+      <div class="card h-100">
+        <img
+          src="{{food.fimage}}"
+          class="card-img-top"
+          alt="Food Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ food.fdname }}</h5>
+          <p class="card-text">
+            <strong>Category:</strong> {{ food.category }} <br />
+            <strong>Price:</strong> Rs.{{ food.price }}
+          </p>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

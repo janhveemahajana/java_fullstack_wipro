@@ -1,0 +1,61 @@
+<div class="container">
+  <mat-card>
+    <h2>Registration Form</h2>
+
+    <form [formGroup]="rf" (ngSubmit)="onSubmit()">
+
+      @if((rf.controls['name'].invalid)&&((rf.controls['name'].touched||rf.controls['name'].dirty))){
+        @if(rf.controls['name'].errors?.['required']) {
+        <span> *Name is Required</span>
+        } }
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+
+      @if((rf.controls['email'].invalid)&&((rf.controls['email'].touched||rf.controls['email'].dirty))){
+        @if(rf.controls['email'].errors?.['required']) {
+        <span> *email is Required</span>
+        } }
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+
+      @if((rf.controls['dob'].invalid)&&((rf.controls['dob'].touched||rf.controls['dob'].dirty))){
+        @if(rf.controls['dob'].errors?.['required']) {
+        <span> *dob is Required</span>
+        } }
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      @if((rf.controls['subject'].invalid)&&((rf.controls['subject'].touched||rf.controls['subject'].dirty))){
+        @if(rf.controls['subject'].errors?.['required']) {
+        <span> *subject is Required</span>
+        } }
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Subject of Study</mat-label>
+        <mat-select formControlName="subject">
+          <mat-option *ngFor="let subj of subjects" [value]="subj">
+            {{ subj }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="rf.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-card>
+</div>

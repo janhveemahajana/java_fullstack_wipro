@@ -1,0 +1,15 @@
+.w-100 {
+  width: 100%;
+}
+.mb {
+  margin-bottom: 1rem;
+}
+.actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.summary {
+  margin-top: 1rem;
+  opacity: 0.8;
+}

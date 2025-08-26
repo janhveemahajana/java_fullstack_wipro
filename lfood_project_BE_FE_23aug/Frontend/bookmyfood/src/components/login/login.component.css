@@ -1,0 +1,22 @@
+body {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.btn-primary {
+  border-radius: 30px;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background-color: #2575fc;
+  transform: scale(1.05);
+}
+.form-floating label {
+  color: #6c757d;
+}

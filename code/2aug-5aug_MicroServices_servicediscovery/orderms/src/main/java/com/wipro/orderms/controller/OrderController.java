@@ -14,12 +14,6 @@ import com.wipro.orderms.service.OrderService;
 public class OrderController {
 	@Autowired
 	OrderService orderService;
-	
-	@PostMapping
-	void save(@RequestBody Order order)
-	{
-		orderService.save(order);	
-	}
 
 	@GetMapping
 	List<Order> findAll()
