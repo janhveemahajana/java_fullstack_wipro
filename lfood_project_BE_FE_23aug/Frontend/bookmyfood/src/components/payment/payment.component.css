@@ -1,0 +1,37 @@
+.payment-card {
+  background: #ffffff;
+  max-width: 500px;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, #007bff, #6f42c1);
+}
+
+.pricing-box,
+.credit-box {
+  background: #f9fbff;
+  transition: 0.3s ease-in-out;
+}
+
+.pricing-box:hover,
+.credit-box:hover {
+  background: #eef3ff;
+  transform: scale(1.02);
+}
+
+.payment-button {
+  transition: 0.3s ease-in-out;
+}
+
+.payment-button:hover {
+  background: #0056d2;
+  transform: translateY(-2px);
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+.text-secondary {
+  color: #6c757d !important;
+}

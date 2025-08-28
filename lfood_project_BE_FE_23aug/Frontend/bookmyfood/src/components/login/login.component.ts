@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Login } from '../../interface/login';
 import { TokenData } from '../../interface/token';
-import { LoginService } from '../../service/login.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from '../../app/service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,6 @@ export class LoginComponent {
 
       let tokenvalue = this.jwttoken.token;
       localStorage.setItem('token', tokenvalue);
-      //console.log(this.jwttoken.token)
       this.router.navigate(['/foodlist']);
     });
   }

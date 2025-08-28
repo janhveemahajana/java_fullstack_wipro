@@ -1,6 +1,80 @@
+.container {
+  max-width: 1200px;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .card-img-top {
   width: 100%;
-  height: 200px;   /* fixed height */
-  object-fit: cover; /* crop and fit the image nicely */
-  border-radius: 8px; /* optional: smooth corners */
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 18px;
+  text-align: center;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-box .form-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.card .btn {
+  margin-top: 10px;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+  background: linear-gradient(135deg, #ff6f61, #ff9472);
+  border: none;
+  color: #fff;
+}
+
+.card .btn:hover {
+  background: linear-gradient(135deg, #ff9472, #ff6f61);
+  transform: scale(1.05);
 }

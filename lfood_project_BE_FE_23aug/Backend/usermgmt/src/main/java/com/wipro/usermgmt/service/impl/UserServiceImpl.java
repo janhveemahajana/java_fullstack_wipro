@@ -66,38 +66,37 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Token login(User user) {
-		User userData = userRepo.findByEmail(user.getEmail());
-
-	    if (userData != null) {
-	        boolean passwordMatches = org.springframework.security.crypto.bcrypt.BCrypt.checkpw(
-	                user.getPassWord(),
-	                userData.getPassWord()
-	        );
-
-	        if (passwordMatches) {
-	            String jwtToken = "Bearer " + getJWTToken(user.getEmail());
-	            Token token = new Token();
-	            token.setToken(jwtToken);
-	            return token;
-	        }
-	    }
-	    return null;
+User userSalt=userRepo.findByEmail(user.getEmail());
+		
+		System.out.println("db salt="+userSalt);
+		String encrypTestPassword= EncryptUtil.getEncryptedPassword(user.getPassWord(),userSalt.getSalt());
+		User userData=userRepo.findByEmailAndPassWord(user.getEmail(),encrypTestPassword);
+		if(userData!=null)
+		{
+			String userId= String.valueOf(userData.getId());
+			String jwtToken="Bearer " + getJWTToken(userId);
+			System.out.println("token="+jwtToken);
+			Token token=new Token();
+			token.setToken(jwtToken);
+			return token;
+		}
+		return null;
 	}
 	
 	
 
-	 private String getJWTToken(String username) {
-	        Key key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(AppConstant.SECRET));
-		 	List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
+	private String getJWTToken(String userId) {
+        Key key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(AppConstant.SECRET));
+	 	List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
 
-	        return Jwts.builder()
-	                .setId("jwtExample")
-	                .setSubject(username)
-	                .claim("authorities", grantedAuthorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-	                .setIssuedAt(new Date())
-	                .setExpiration(new Date(System.currentTimeMillis() + 600000))
-	                .signWith(key)
-	                .compact();
-	    }
+        return Jwts.builder()
+                .setId("jwtExample")
+                .setSubject(userId)
+                .claim("authorities", grantedAuthorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + 600000))
+                .signWith(key)
+                .compact();
+    }
 
 }

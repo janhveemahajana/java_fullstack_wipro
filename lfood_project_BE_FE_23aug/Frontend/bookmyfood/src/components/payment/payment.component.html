@@ -1,0 +1,96 @@
+<div class="container my-5 d-flex justify-content-center">
+  <div class="card shadow-lg border-0 rounded-4 p-4 payment-card">
+    <!-- Header -->
+    <div class="text-center mb-4">
+      <h4 class="fw-semibold text-dark">Payment Methods</h4>
+      <p class="text-secondary small mb-0">
+        Select a saved card or add a new one
+      </p>
+    </div>
+
+    <!-- Pricing -->
+    <div
+      class="pricing-box p-3 rounded-3 d-flex justify-content-between align-items-center shadow-sm"
+    >
+      <div class="d-flex align-items-center">
+        <img
+          src="https://i.imgur.com/S17BrTx.png"
+          class="rounded-circle"
+          width="60"
+        />
+        <div class="ms-3">
+          <span class="fw-semibold">Total Amount</span>
+          <p class="text-muted small mb-0">Premium Annual Plan</p>
+        </div>
+      </div>
+      <div class="text-end">
+        <span class="amount ml-1 mr-1">{{
+          totalPrice | currency : "INR"
+        }}</span>
+      </div>
+    </div>
+
+    <!-- Payment details -->
+    <h6 class="mt-5 fw-bold text-secondary">💳 Payment Details</h6>
+
+    <div
+      class="credit-box rounded-3 mt-3 p-3 d-flex justify-content-between align-items-center shadow-sm"
+    >
+      <div class="d-flex align-items-center">
+        <img src="https://i.imgur.com/qHX7vY1.png" class="rounded" width="55" />
+        <div class="ms-3">
+          <span class="fw-semibold">Credit Card</span>
+          <p class="text-muted small mb-0">**** **** **** 2570</p>
+        </div>
+      </div>
+      <input
+        type="text"
+        class="form-control form-control-sm w-25"
+        placeholder="CVC"
+      />
+    </div>
+
+    <div
+      class="credit-box rounded-3 mt-3 p-3 d-flex justify-content-between align-items-center shadow-sm"
+    >
+      <div class="d-flex align-items-center">
+        <img src="https://i.imgur.com/qHX7vY1.png" class="rounded" width="55" />
+        <div class="ms-3">
+          <span class="fw-semibold">Credit Card</span>
+          <p class="text-muted small mb-0">**** **** **** 8880</p>
+        </div>
+      </div>
+      <input
+        type="text"
+        class="form-control form-control-sm w-25"
+        placeholder="CVC"
+      />
+    </div>
+
+    <!-- Add method -->
+    <div class="mt-4">
+      <button class="btn btn-outline-primary w-100 fw-semibold rounded-3">
+        + Add Payment Method
+      </button>
+    </div>
+
+    <!-- Email -->
+    <div class="email mt-4">
+      <input
+        type="text"
+        class="form-control rounded-3"
+        placeholder="Email Address"
+      />
+    </div>
+
+    <!-- Button -->
+    <div class="mt-4">
+      <button
+        class="btn btn-primary w-100 fw-bold rounded-3 payment-button shadow"
+        (click)="pay()"
+      >
+        Proceed to Payment <i class="fa fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </div>
+</div>

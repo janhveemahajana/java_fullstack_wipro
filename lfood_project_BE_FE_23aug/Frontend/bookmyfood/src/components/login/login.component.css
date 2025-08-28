@@ -5,18 +5,35 @@ body {
   align-items: center;
   justify-content: center;
 }
-.card {
+
+.login-wrapper {
+  max-width: 950px;
   border-radius: 20px;
-  overflow: hidden;
+  background: #fff;
 }
+
+.left-side {
+  background: linear-gradient(135deg, #ff6f61, #ff9472);
+  text-align: center;
+}
+
+.card,
+.form-control {
+  border-radius: 15px;
+}
+
 .btn-primary {
   border-radius: 30px;
   transition: 0.3s;
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  border: none;
 }
+
 .btn-primary:hover {
-  background-color: #2575fc;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   transform: scale(1.05);
 }
+
 .form-floating label {
   color: #6c757d;
 }
