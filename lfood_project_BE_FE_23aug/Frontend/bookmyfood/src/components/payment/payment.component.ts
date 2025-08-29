@@ -1,7 +1,7 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PaymentService } from '../../app/service/payment.service';
+import { PaymentService } from '../../service/payment.service';
 import { Payment } from '../../interface/payment';
 
 @Component({
@@ -16,10 +16,10 @@ export class PaymentComponent {
     private paymentService: PaymentService,
     private router: Router
   ) {}
-
   totalPrice: any = '';
   orderId: any = '';
-
+  accountNumber: string = '';
+  cvv: number = 0;
   ngOnInit() {
     this.orderId = this.activatedRoute.snapshot.paramMap.get('orderId');
     let price = this.activatedRoute.snapshot.paramMap
@@ -28,15 +28,15 @@ export class PaymentComponent {
     this.totalPrice = price;
   }
 
-  async pay() {
+  pay() {
     let payment: Payment = {
       orderId: this.orderId,
       totalOrderPrice: this.totalPrice,
-      accountNumber: '123-45-678',
-      cvv: 234,
+      accountNumber: this.accountNumber,
+      cvv: this.cvv,
       modeOfPayment: 'card',
     };
-    (await this.paymentService.save(payment)).subscribe((result: any) => {
+    this.paymentService.save(payment).subscribe((result: any) => {
       console.log(result);
       this.router.navigate(['paymentsub']);
     });

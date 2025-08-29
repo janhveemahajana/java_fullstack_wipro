@@ -5,11 +5,11 @@ import {
 } from '@angular/core';
 import { Food } from '../../interface/food';
 import { Router } from '@angular/router';
-import { FoodService } from '../../app/service/food.service';
+import { FoodService } from '../../service/food.service';
 import { Iorder } from '../../interface/iorder';
 import { FormsModule } from '@angular/forms';
 
-import { OrderserviceService } from '../../app/service/orderservice.service';
+import { OrderserviceService } from '../../service/orderservice.service';
 
 @Component({
   selector: 'app-foodlist',

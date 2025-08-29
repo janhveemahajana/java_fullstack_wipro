@@ -3,7 +3,7 @@ import { Login } from '../../interface/login';
 import { TokenData } from '../../interface/token';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { LoginService } from '../../app/service/login.service';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'app-login',

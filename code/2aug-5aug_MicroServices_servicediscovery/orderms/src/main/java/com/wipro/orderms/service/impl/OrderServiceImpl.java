@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -71,7 +72,8 @@ public class OrderServiceImpl implements OrderService{
 		//2.Create an order object 
 //		OrderEntity orderData= new OrderEntity();
 		order.setOrderId(orderId);
-		order.setOrderStatus(0);
+		order.setOrderStatus("Pending");
+		orderRepo.save(order);
 		
 		//3 make a call to the Movie service
 		String url="http://FOOD/foods/"+order.getFoodId();
@@ -87,16 +89,50 @@ public class OrderServiceImpl implements OrderService{
 		return order;
 	}
 
- 
-	public void deleteById(int id) {
+
+	@Override
+	public ResponseEntity<String> delete(int id) {
 		// TODO Auto-generated method stub
-		orderRepo.deleteById(id);
+		
+		if(orderRepo.findById(id).isPresent()) {
+			orderRepo.deleteById(id);
+			return new ResponseEntity<>("Order deleted successfully", HttpStatus.OK);	
+		}
+		else {
+			return new ResponseEntity<>("Order not Found", HttpStatus.NO_CONTENT);
+		}
+		
+
 	}
-	
+
+	@Override
+	public ResponseEntity<String> update(int id, OrderEntity orderEntity) {
+		// TODO Auto-generated method stub
+		
+		OrderEntity extOrder = orderRepo.findById(id).get();
+		
+		if(extOrder.getId() == orderEntity.getId()) {
+//			extOrder.setItems(orderEntity.getItems());
+			extOrder.setOrderId(orderEntity.getOrderId());
+//			extOrder.setOrderTime(orderEntity.getOrderTime());
+			
+//			extOrder.setOrderValue(orderEntity.getOrderValue());
+			orderRepo.save(extOrder);
+			return new ResponseEntity<>("Order updated successfully", HttpStatus.OK);
+			
+		}
+		else {
+			return new ResponseEntity<>("Order id not found", HttpStatus.NO_CONTENT);
+		}
+
+	}
+
 	@Override
 	public void pay(Payment payment) {
 		// TODO Auto-generated method stub
-		kafkaTemplate.send(AppConstant.OUTGOING_TOPIC_NAME,payment)	;
+		kafkaTemplate.send(AppConstant.OUTGOING_TOPIC_NAME, payment);
+		
+		
 	}
 
 }

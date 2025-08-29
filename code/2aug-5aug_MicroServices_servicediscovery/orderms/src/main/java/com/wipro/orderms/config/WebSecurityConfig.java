@@ -17,11 +17,11 @@ public class WebSecurityConfig {
         return http
         	.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 
-            .csrf(csrf -> csrf.disable())
-                       .authorizeHttpRequests(
-            	        auth -> auth
-                       .anyRequest().authenticated()
-            ) 
+        	.csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(
+ 	        auth -> auth.requestMatchers("/user/login/**").permitAll()
+            .anyRequest().authenticated()
+ ) 
            
             .build();
     }

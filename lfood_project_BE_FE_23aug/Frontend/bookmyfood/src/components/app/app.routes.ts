@@ -6,9 +6,10 @@ import { PaymentsubmissionComponent } from '../paymentsubmission/paymentsubmissi
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'foodlist', component: FoodlistComponent },
-  
+
   { path: 'payment/:orderId/:totalPrice', component: PaymentComponent },
   { path: 'paymentsub', component: PaymentsubmissionComponent },
 ];
-RouterModule.forRoot(routes, { enableTracing: true })
+RouterModule.forRoot(routes, { enableTracing: true });

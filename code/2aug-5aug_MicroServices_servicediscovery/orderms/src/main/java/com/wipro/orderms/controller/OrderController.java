@@ -4,6 +4,7 @@ package com.wipro.orderms.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.wipro.orderms.dto.Payment;
@@ -28,9 +29,8 @@ public class OrderController {
 		return orderService.findById(id);
 	}
 	@DeleteMapping("/{id}")
-	void deleteById(@PathVariable int id)
-	{
-		orderService.deleteById(id);
+	public ResponseEntity<String> delete(@PathVariable int id){
+		return orderService.delete(id);
 	}
 	@PostMapping
 	OrderEntity save(@RequestBody OrderEntity order,
@@ -46,11 +46,9 @@ public class OrderController {
 		return 	orderReturn;
 	}
 	
-	@PutMapping
-	void update(@RequestBody OrderEntity order)
-	{
-		orderService.save(order,"");
-		
+	@PutMapping("/{id}")
+	public ResponseEntity<String> update(@PathVariable int id, @RequestBody OrderEntity order){
+		return orderService.update(id, order);
 	}
 	
 	@PostMapping("/pay")

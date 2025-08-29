@@ -8,7 +8,7 @@ public class Payment {
 	int id;
 	String orderId;	 	 
 	double totalOrderPrice;	
-	int paymentStatus;	
+	String paymentStatus;	
 	String modeOfPayment; 	
 	String accountNumber;
 	int cvv;

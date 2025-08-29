@@ -18,18 +18,11 @@ public class PaymentServiceImpl implements PaymentService {
 	@Autowired
 	PaymentRepo paymentRepo;
 	
-	 
-	
- 
- 
 	public List<Payment> findAll() {
-		// TODO Auto-generated method stub
 		return paymentRepo.findAll();
 	}
 
- 
 	public Payment findById(int id) {
-		// TODO Auto-generated method stub
 		Optional<Payment> paymentOpt= paymentRepo.findById(id);
 		if(paymentOpt.isPresent())
 		{
@@ -39,17 +32,12 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	public Payment save(Payment payment) {
-		return payment;
+		return paymentRepo.save(payment);
 	  
-	 
-	 
 	}
 
- 
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
 		paymentRepo.deleteById(id);
 	}
-
 
 }

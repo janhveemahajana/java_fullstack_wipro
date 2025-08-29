@@ -29,6 +29,6 @@ public class OrderEntity {
 	double totalOrderPrice;
 	
 	@Column(name="order_status")
-    int orderStatus;
+    String orderStatus;
 	
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Login } from '../../interface/login';
+import { Login } from '../interface/login';
 import { HttpClient } from '@angular/common/http';
-import { TokenData } from '../../interface/token';
+import { TokenData } from '../interface/token';
 import { Observable } from 'rxjs';
-import { BASE_URL } from './util/appconstant';
+import { BASE_URL } from '../util/appconstant';
 
 @Injectable({
   providedIn: 'root',

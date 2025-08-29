@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paymentsubmission',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './paymentsubmission.component.css'
 })
 export class PaymentsubmissionComponent {
+  constructor(private router: Router){}
 
+  backFoodList(){
+    this.router.navigate(['/foodlist'])
+  }
 }
