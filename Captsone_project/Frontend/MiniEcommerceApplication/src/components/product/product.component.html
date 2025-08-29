@@ -1,0 +1,29 @@
+<div class="header">
+  <button class="cart-btn">Cart</button>
+</div>
+
+<div class="search-bar">
+  <select [(ngModel)]="searchCategory">
+    <option value="">All Categories</option>
+    <option value="kitchen">Kitchen</option>
+    <option value="electronics">Electronics</option>
+    <option value="fashion">Fashion</option>
+  </select>
+
+  <input [(ngModel)]="searchText" placeholder="Search text" />
+  <button (click)="search()">Search</button>
+</div>
+
+<div class="product-grid">
+  @for (product of products; track $index){
+    <div class="product-card">
+    <img [src]="product.imageURL" alt="{{product.prodName}}" />
+    <h3>{{product.prodName}}</h3>
+    <p>{{product.prodDesc}}</p>
+    <p>Category: {{product.prodCat}}</p>
+    <p>Price: {{product.price | currency : "INR"}}</p>
+    <p>Available: {{product.availableQty}}</p>
+    <button>Add to Cart</button>
+  </div>
+  }
+</div>
