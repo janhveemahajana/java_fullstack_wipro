@@ -1,0 +1,68 @@
+<h3>Edit Product</h3>
+<form
+  *ngIf="editingProduct"
+  (ngSubmit)="updateProduct()"
+  class="form-container"
+>
+  <div class="form-group">
+    <input
+      [(ngModel)]="editingProduct.prodName"
+      name="prodName"
+      placeholder="Product Name"
+    />
+    <input
+      [(ngModel)]="editingProduct.prodDesc"
+      name="prodDesc"
+      placeholder="Description"
+    />
+    <input
+      [(ngModel)]="editingProduct.prodCat"
+      name="prodCat"
+      placeholder="Category"
+    />
+    <input [(ngModel)]="editingProduct.make" name="make" placeholder="Make" />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="number"
+      [(ngModel)]="editingProduct.availableQty"
+      name="availableQty"
+      placeholder="Available Qty"
+    />
+    <input
+      type="number"
+      [(ngModel)]="editingProduct.price"
+      name="price"
+      placeholder="Price"
+    />
+    <input [(ngModel)]="editingProduct.uom" name="uom" placeholder="UOM" />
+    <input
+      type="number"
+      step="0.1"
+      [(ngModel)]="editingProduct.prodRating"
+      name="prodRating"
+      placeholder="Rating"
+    />
+  </div>
+
+  <div class="form-group">
+    <input
+      [(ngModel)]="editingProduct.imageURL"
+      name="imageURL"
+      placeholder="Image URL"
+    />
+    <input
+      type="date"
+      [(ngModel)]="editingProduct.dateOfManufactureName"
+      name="dateOfManufactureName"
+    />
+  </div>
+
+  <div class="button-group">
+    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="button" (click)="cancelEdit()" class="btn btn-secondary">
+      Cancel
+    </button>
+  </div>
+</form>

@@ -1,0 +1,116 @@
+<h3 class="form-title">Add Product</h3>
+
+<form (ngSubmit)="addProduct()" class="product-form">
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="prodName">Product Name</label>
+      <input
+        id="prodName"
+        [(ngModel)]="newProduct.prodName"
+        name="prodName"
+        placeholder="Enter product name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="prodDesc">Description</label>
+      <input
+        id="prodDesc"
+        [(ngModel)]="newProduct.prodDesc"
+        name="prodDesc"
+        placeholder="Enter description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="prodCat">Category</label>
+      <input
+        id="prodCat"
+        [(ngModel)]="newProduct.prodCat"
+        name="prodCat"
+        placeholder="Enter category"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="make">Make</label>
+      <input
+        id="make"
+        [(ngModel)]="newProduct.make"
+        name="make"
+        placeholder="Enter brand/make"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="availableQty">Available Qty</label>
+      <input
+        id="availableQty"
+        type="number"
+        [(ngModel)]="newProduct.availableQty"
+        name="availableQty"
+        placeholder="Enter available quantity"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        id="price"
+        type="number"
+        [(ngModel)]="newProduct.price"
+        name="price"
+        placeholder="Enter price"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="uom">Unit of Measure (UOM)</label>
+      <input
+        id="uom"
+        [(ngModel)]="newProduct.uom"
+        name="uom"
+        placeholder="e.g. pcs, kg"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="prodRating">Rating</label>
+      <input
+        id="prodRating"
+        type="number"
+        step="0.1"
+        [(ngModel)]="newProduct.prodRating"
+        name="prodRating"
+        placeholder="Enter rating (0-5)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="imageURL">Image URL</label>
+      <input
+        id="imageURL"
+        [(ngModel)]="newProduct.imageURL"
+        name="imageURL"
+        placeholder="Paste image URL"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfManufactureName">Date of Manufacture</label>
+      <input
+        id="dateOfManufactureName"
+        type="date"
+        [(ngModel)]="newProduct.dateOfManufactureName"
+        name="dateOfManufactureName"
+      />
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" (click)="cancelAdd()" class="btn btn-secondary">
+      ✖ Cancel
+    </button>
+  </div>
+</form>

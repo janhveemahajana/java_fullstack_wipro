@@ -1,4 +1,5 @@
-.add-form, .edit-form {
+.add-form,
+.edit-form {
   margin: 20px 0;
   padding: 15px;
   border: 1px solid #ddd;
@@ -20,4 +21,52 @@ button {
 }
 button:hover {
   background: #0056b3;
+}
+
+.logout-btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #dc3545, #b02a37); 
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #b02a37, #841c26);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logout-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #dc3545, #b02a37); 
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #b02a37, #841c26);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }

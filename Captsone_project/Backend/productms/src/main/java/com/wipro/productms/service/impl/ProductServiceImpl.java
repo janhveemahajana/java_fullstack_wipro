@@ -22,7 +22,6 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product findById(int id) {
-		// TODO Auto-generated method stub
 		Optional<Product> foodOpt= productRepo.findById(id);
 		if(foodOpt.isPresent())
 		{
@@ -40,7 +39,6 @@ public class ProductServiceImpl implements ProductService{
 	public Product update(int id, Product product) {
 	    return productRepo.findById(id).map(existingProduct -> {
 	        
-	        // Copy new values into the existing entity
 	        existingProduct.setProdName(product.getProdName());
 	        existingProduct.setProdDesc(product.getProdDesc());
 	        existingProduct.setProdCat(product.getProdCat());
@@ -52,7 +50,6 @@ public class ProductServiceImpl implements ProductService{
 	        existingProduct.setImageURL(product.getImageURL());
 	        existingProduct.setDateOfManufacture(product.getDateOfManufacture());
 
-	        // Save updated entity
 	        return productRepo.save(existingProduct);
 	    }).orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
 	}
@@ -62,4 +59,19 @@ public class ProductServiceImpl implements ProductService{
 
 		productRepo.deleteById(id);
 	}
+	
+	@Override
+    public List<Product> findByCategory(String category) {
+        return productRepo.findByProdCatContainingIgnoreCase(category);
+    }
+
+    @Override
+    public List<Product> searchByNameOrDescription(String search) {
+        return productRepo.findByProdNameContainingIgnoreCaseOrProdDescContainingIgnoreCase(search, search);
+    }
+
+    @Override
+    public List<Product> searchByCategoryAndName(String category, String search) {
+        return productRepo.findByProdCatContainingIgnoreCaseAndProdNameContainingIgnoreCase(category, search);
+    }
 }

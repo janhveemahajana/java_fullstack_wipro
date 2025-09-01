@@ -1,50 +1,84 @@
-<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
-  <div class="row w-100 shadow-lg rounded-4 overflow-hidden login-wrapper">
-  
-    <div class="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-center text-white p-5 left-side">
-      <h1 class="fw-bold display-5">Place My Food 🍕</h1>
-      <p class="lead mt-3">Fast • Fresh • Delivered</p>
-      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Food" class="img-fluid mt-4" style="max-height: 220px;">
-    </div>
+<div
+  class="min-vh-100 d-flex align-items-center justify-content-center bg-light"
+>
+  <div class="login-wrapper shadow-lg rounded-4 overflow-hidden">
+    <div class="row g-0">
+      <!-- LEFT SIDE -->
+      <div
+        class="col-md-5 d-none d-md-flex flex-column justify-content-center align-items-center text-white p-5 left-side"
+      >
+        <h1 class="fw-bold display-5">E-Commerce Store</h1>
+        <p class="lead mt-3">Join thousands of happy shoppers</p>
+        <i class="fa-solid fa-cart-shopping fa-4x mt-4"></i>
+        <p class="mt-4">
+          New here?
+          <a
+            [routerLink]="['/register']"
+            class="fw-bold text-white text-decoration-none"
+            >Create an Account</a
+          >
+        </p>
+      </div>
 
-    <div class="col-md-6 bg-white p-5">
-      <h3 class="text-center mb-4 fw-bold">Welcome Back 👋</h3>
-      <form>
-        <div class="form-floating mb-3">
-          <input
-            type="emailId"
-            class="form-control"
-            id="emailId"
-            name="emailId"
-            placeholder="Enter emailId"
-            [(ngModel)]="login.emailId"
-          />
-          <label for="emailId">Email address</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            name="password"
-            placeholder="Enter password"
-            [(ngModel)]="login.passWord"
-          />
-          <label for="password">Password</label>
-        </div>
-        <div class="d-flex justify-content-between mb-3">
-          <div>
-            <input type="checkbox" id="remember" />
-            <label for="remember" class="small"> Remember me</label>
+      <!-- RIGHT SIDE -->
+      <div class="col-md-7 bg-white p-5">
+        <h3 class="text-center mb-3 fw-bold">Sign In</h3>
+        <p class="text-center text-muted mb-4">
+          Enter your credentials to continue
+        </p>
+
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="userId"
+              placeholder="User ID"
+              [(ngModel)]="login.userId"
+              name="userId"
+              required
+              #userId="ngModel"
+            />
+            <label for="userId">User ID</label>
+            <div
+              *ngIf="userId.invalid && userId.touched"
+              class="validation-error"
+            >
+              User ID is required
+            </div>
           </div>
-          <a href="#" class="small text-decoration-none">Forgot Password?</a>
-        </div>
-        <button type="submit" class="btn btn-primary w-100" (click)="onLogin()">Login</button>
-      </form>
-      <p class="text-center mt-3 small">
-        Don’t have an account?
-        <a href="#" class="fw-bold text-decoration-none" [routerLink]="['/register']">Sign Up</a>
-      </p>
+
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Password"
+              [(ngModel)]="login.passWord"
+              name="passWord"
+              required
+              #password="ngModel"
+            />
+            <label for="password">Password</label>
+            <div
+              *ngIf="password.invalid && password.touched"
+              class="validation-error"
+            >
+              Password is required
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-100 py-2 mt-2"
+            [disabled]="loginForm.invalid || isLoading"
+            [class.btn-loading]="isLoading"
+          >
+            {{ isLoading ? "Signing In..." : "Sign In" }}
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+

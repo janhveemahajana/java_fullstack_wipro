@@ -20,7 +20,7 @@ public class Product {
 	String prodDesc;
 	
 	@Column(name="prod_category")
-	String prodCat;// electronics, apparel, kitchen, books, etc
+	String prodCat;
 	
 	@Column(name="prod_make")
 	String make;
@@ -32,7 +32,7 @@ public class Product {
 	double price;
 	
 	@Column
-	String uom;// litre, kg.pc
+	String uom;
 	
 	@Column(name="prod_rating")
 	double prodRating;

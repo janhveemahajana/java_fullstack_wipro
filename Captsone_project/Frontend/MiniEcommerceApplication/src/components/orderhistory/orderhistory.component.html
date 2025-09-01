@@ -1,0 +1,72 @@
+<app-header></app-header>
+
+<div class="order-history-container">
+  <h2>My Orders</h2>
+
+  <div class="continue-shopping-container">
+    <button (click)="continueShopping()" class="btn-custom btn-primary-custom">
+      Continue Shopping
+    </button>
+  </div>
+
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="isLoading" class="loading">Loading orders...</div>
+
+  <div *ngIf="!isLoading && orders.length === 0" class="no-orders">
+    <p>You haven't placed any orders yet.</p>
+    <button (click)="continueShopping()" class="btn btn-primary">
+      Start Shopping
+    </button>
+  </div>
+
+  <div *ngIf="!isLoading && orders.length > 0" class="orders-table-wrapper">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order #</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Total Amount</th>
+          <th>Items</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.orderDate | date : "mediumDate" }}</td>
+          <td>
+            <span [class]="'status-' + order.orderStatus.toLowerCase()">
+              {{ order.orderStatus }}
+            </span>
+          </td>
+          <td>{{ order.totalAmount | currency : "INR" }}</td>
+          <td>
+            <ul class="order-items-list">
+              <li *ngFor="let item of getOrderItems(order.orderId!)">
+                {{ item.productName }} (x{{ item.quantity }}) -
+                {{ item.total | currency : "INR" }}
+              </li>
+            </ul>
+          </td>
+          <td>
+            <button
+              *ngIf="canCancelOrder(order)"
+              (click)="cancelOrder(order.orderId!)"
+              class="btn-custom btn-warning-custom"
+            >
+              Cancel
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

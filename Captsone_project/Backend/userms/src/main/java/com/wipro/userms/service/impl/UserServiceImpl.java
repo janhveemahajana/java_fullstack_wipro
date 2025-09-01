@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	public void save(User user) {
 		if (user.getPassWord() != null) {
 			String salt = org.springframework.security.crypto.bcrypt.BCrypt.gensalt();
-			user.setSalt(salt); // optional, since bcrypt embeds salt
+			user.setSalt(salt);
 			String encryptedPass = EncryptUtil.getEncryptedPassword(user.getPassWord(), salt);
 			user.setPassWord(encryptedPass);
 		}
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Token login(User user) {
-		User userSalt = userRepo.findByEmailId(user.getEmailId());
+		User userSalt = userRepo.findByUserId(user.getUserId());
 
 		if (userSalt == null) {
 	        return null;
@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
 		
 		System.out.println("db salt=" + userSalt);
 		String encrypTestPassword = EncryptUtil.getEncryptedPassword(user.getPassWord(), userSalt.getSalt());
-		User userData = userRepo.findByEmailIdAndPassWord(user.getEmailId(), encrypTestPassword);
+		User userData = userRepo.findByUserIdAndPassWord(user.getUserId(), encrypTestPassword);
 		if (userData != null) {
 			String userId = String.valueOf(userData.getId());
 			String role = (userData.getUserType() == 0) ? "ADMIN" : "CUSTOMER";

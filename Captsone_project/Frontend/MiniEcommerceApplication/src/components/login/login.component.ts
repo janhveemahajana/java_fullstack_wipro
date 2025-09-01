@@ -4,10 +4,11 @@ import { Login } from '../../interface/login';
 import { TokenData } from '../../interface/token';
 import { LoginService } from '../../service/login.service';
 import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -28,27 +29,43 @@ export class LoginComponent {
     token: '',
     role: '',
   };
+
+  isLoading: boolean = false;
+
   constructor(private loginService: LoginService, private router: Router) {}
 
   onLogin() {
-    console.log('email=' + this.login.emailId);
+    console.log('userId=' + this.login.userId);
     console.log('password=' + this.login.passWord);
-    this.loginService.login(this.login).subscribe((data) => {
-      this.jwttoken = data;
 
-      let tokenvalue = this.jwttoken.token;
-      let rolevalue = this.jwttoken.role;
+    this.isLoading = true; 
 
-      localStorage.setItem('token', tokenvalue);
-      localStorage.setItem('role', rolevalue);
+    this.loginService.login(this.login).subscribe({
+      next: (data) => {
+        this.jwttoken = data;
 
-      if (rolevalue === 'ADMIN' || this.login.userType === 0) {
-        this.router.navigate([`/user/menu/0`]); // Admin menu
-      } else if (rolevalue === 'CUSTOMER' || this.login.userType === 1) {
-        this.router.navigate([`/user/menu/1`]); // Customer menu
-      } else {
-        this.router.navigate(['/products']); // fallback
-      }
+        let tokenvalue = this.jwttoken.token;
+        let rolevalue = this.jwttoken.role;
+
+        localStorage.setItem('token', tokenvalue);
+        localStorage.setItem('role', rolevalue);
+
+        const userId = localStorage.getItem('userId');
+        console.log('Logged in with user ID:', userId);
+
+        if (rolevalue === 'ADMIN') {
+          this.router.navigate([`/user/menu/0`]);
+        } else if (rolevalue === 'CUSTOMER') {
+          this.router.navigate([`/user/menu/1`]);
+        } else {
+          this.router.navigate(['/products']);
+        }
+      },
+      error: (error) => {
+        console.error('Login error:', error);
+        this.isLoading = false; 
+        alert('Login failed. Please check your credentials.');
+      },
     });
   }
 }

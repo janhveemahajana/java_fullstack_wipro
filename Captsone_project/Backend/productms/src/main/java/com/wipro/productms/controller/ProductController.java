@@ -3,6 +3,7 @@ package com.wipro.productms.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.wipro.productms.entity.Product;
@@ -42,4 +43,27 @@ public class ProductController {
 		productService.save(product);
 		
 	}
+	
+	@GetMapping("/search")
+    public ResponseEntity<List<Product>> searchProducts(
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String search) {
+        
+        List<Product> products;
+        try {
+            if (category != null && search != null) {
+                products = productService.searchByCategoryAndName(category, search);
+            } else if (category != null) {
+                products = productService.findByCategory(category);
+            } else if (search != null) {
+                products = productService.searchByNameOrDescription(search);
+            } else {
+                products = productService.findAll();
+            }
+            
+            return ResponseEntity.ok(products);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }

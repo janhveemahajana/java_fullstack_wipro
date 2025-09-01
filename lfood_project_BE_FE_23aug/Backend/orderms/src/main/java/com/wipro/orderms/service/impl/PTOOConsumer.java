@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.wipro.orderms.dto.Payment;
 import com.wipro.orderms.entity.OrderEntity;
 import com.wipro.orderms.repo.OrderRepo;
-import com.wipro.orderms.util.AppConstant;
 
 
 @Service

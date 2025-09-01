@@ -1,0 +1,33 @@
+.auth-left {
+  background: linear-gradient(135deg, #0072ff, #00c851);
+  text-align: center;
+}
+
+.auth-container {
+  background-color: #f8f9fa;
+}
+
+.form-card {
+  border: none;
+}
+
+.form-control {
+  padding: 12px;
+  font-size: 0.95rem;
+  border-radius: 10px;
+}
+
+.underline-hover:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: #6cb2eb;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0072ff;
+  transform: translateY(-2px);
+}

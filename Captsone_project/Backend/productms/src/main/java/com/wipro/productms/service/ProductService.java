@@ -10,4 +10,8 @@ public interface ProductService {
 	Product save(Product product);
 	void deleteById(int id);
 	Product update(int id, Product product);
+	
+    List<Product> findByCategory(String category);
+    List<Product> searchByNameOrDescription(String search);
+    List<Product> searchByCategoryAndName(String category, String search);
 }
