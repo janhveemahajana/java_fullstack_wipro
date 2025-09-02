@@ -19,9 +19,7 @@ export class ProfileComponent {
     userId: '',
     emailId: '',
     address: '',
-    phone: '',
-    password: '',
-    confirmPassword: '',
+    phone: ''
   };
 
   isEditing = false;
@@ -66,8 +64,6 @@ export class ProfileComponent {
         this.isEditing = false;
         this.message = 'Profile updated successfully!';
 
-        this.user.password = '';
-        this.user.confirmPassword = '';
       },
       error: (error) => {
         console.error('Error updating profile:', error);

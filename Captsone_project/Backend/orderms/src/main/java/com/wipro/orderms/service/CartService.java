@@ -11,5 +11,6 @@ public interface CartService {
     void clearCart(int userId);
     Cart createNewCart(int userId);
     void updateCartTotals(Cart cart);
-    
+    int getCartItemCount(Long userId);
+
 }

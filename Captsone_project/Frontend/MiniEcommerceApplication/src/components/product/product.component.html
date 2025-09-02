@@ -1,12 +1,12 @@
 <app-header></app-header>
 
 <div class="search-bar">
-  <select [(ngModel)]="searchCategory">
+  <select [(ngModel)]="searchCategory" (ngModelChange)="search()">
     <option value="">All Categories</option>
     <option value="kitchen">Kitchen</option>
     <option value="electronics">Electronics</option>
     <option value="fashion">Fashion</option>
-    <option value="fashion">Footwear</option>
+    <option value="footwear">Footwear</option>
   </select>
 
   <input [(ngModel)]="searchText" placeholder="Search products..." />
@@ -14,31 +14,31 @@
 </div>
 
 @if (isLoading) {
-  <div class="loading">
-    <p>Loading products...</p>
-  </div>
-}
-@if (errorMessage) {
-  <div class="error">
-    <p>{{ errorMessage }}</p>
-  </div>
+<div class="loading">
+  <p>Loading products...</p>
+</div>
+} @if (errorMessage) {
+<div class="error">
+  <p>{{ errorMessage }}</p>
+</div>
 }
 
 <div class="product-grid">
   @for (product of filteredProducts; track $index) {
-    <div class="product-card">
-      <img [src]="product.imageURL" alt="{{ product.prodName }}" />
-      <h3>{{ product.prodName }}</h3>
-      <p class="desc">{{ product.prodDesc }}</p>
-      <p class="category">Category: <span>{{ product.prodCat }}</span></p>
-      <p class="price">Price: {{ product.price | currency : "INR" }}</p>
-      <p class="stock">Available: {{ product.availableQty }}</p>
-      <button (click)="addToCart(product)">Add to Cart</button>
-    </div>
-  }
-  @if (filteredProducts.length === 0 && !isLoading) {
-    <div class="no-products">
-      <p>No products found matching your search criteria.</p>
-    </div>
+  <div class="product-card">
+    <img [src]="product.imageURL" alt="{{ product.prodName }}" />
+    <h3>{{ product.prodName }}</h3>
+    <p class="desc">{{ product.prodDesc }}</p>
+    <p class="category">
+      Category: <span>{{ product.prodCat }}</span>
+    </p>
+    <p class="price">Price: {{ product.price | currency : "INR" }}</p>
+    <p class="stock">Available: {{ product.availableQty }}</p>
+    <button (click)="addToCart(product)">Add to Cart</button>
+  </div>
+  } @if (filteredProducts.length === 0 && !isLoading) {
+  <div class="no-products">
+    <p>No products found matching your search criteria.</p>
+  </div>
   }
 </div>

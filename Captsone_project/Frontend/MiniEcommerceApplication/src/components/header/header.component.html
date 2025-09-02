@@ -4,7 +4,13 @@
     <h2>E-Commerce Store</h2>
   </div>
   <div class="header-right">
-    <button class="cart-btn" (click)="goToCart()">🛒 Cart</button>
+    <!-- <button class="cart-btn" (click)="goToCart()">🛒 Cart</button> -->
+    <nav class="breadcrumb">
+      <a (click)="goToCart()" class="cart-icon">
+        🛒 <span class="cart-count">{{ cartCount }}</span>
+      </a>
+    </nav>
+
     <div class="dropdown">
       <button
         class="btn btn-secondary dropdown-toggle"
@@ -17,9 +23,24 @@
         Profile
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#" (click)="goToProfile(); $event.preventDefault()">👤 Profile</a>
-        <a class="dropdown-item" href="#" (click)="goToOrders(); $event.preventDefault()">📦 Orders</a>
-        <a class="dropdown-item" href="#" (click)="logout(); $event.preventDefault()">🚪 Logout</a>
+        <a
+          class="dropdown-item"
+          href="#"
+          (click)="goToProfile(); $event.preventDefault()"
+          >👤 Profile</a
+        >
+        <a
+          class="dropdown-item"
+          href="#"
+          (click)="goToOrders(); $event.preventDefault()"
+          >📦 Orders</a
+        >
+        <a
+          class="dropdown-item"
+          href="#"
+          (click)="logout(); $event.preventDefault()"
+          >🚪 Logout</a
+        >
       </div>
     </div>
   </div>

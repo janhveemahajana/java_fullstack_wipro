@@ -12,4 +12,6 @@ import com.wipro.orderms.entity.Cart;
 public interface CartRepo extends JpaRepository<Cart, Integer> {
 	Optional<Cart> findByUserId(Integer userId);
     void deleteByUserId(Integer userId);
+    Optional<Cart> findByUserId(Long userId);
+
 }

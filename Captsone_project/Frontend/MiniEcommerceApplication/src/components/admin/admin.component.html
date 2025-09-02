@@ -4,6 +4,18 @@
     🚪 Logout
   </a>
 </div>
+
+<div class="search-bar">
+  <label for="category">Filter by Category:</label>
+  <select [(ngModel)]="searchCategory" (ngModelChange)="filterProducts()">
+    <option value="">All Categories</option>
+    <option value="kitchen">Kitchen</option>
+    <option value="electronics">Electronics</option>
+    <option value="fashion">Fashion</option>
+    <option value="footwear">Footwear</option>
+  </select>
+</div>
+
 <button (click)="goToAdd()">+ Add Product</button>
 
 <table border="1" width="100%">
@@ -15,7 +27,7 @@
     <th>Available</th>
     <th>Actions</th>
   </tr>
-  <tr *ngFor="let product of products">
+  <tr *ngFor="let product of filteredProducts">
     <td>{{ product.prodName }}</td>
     <td>{{ product.prodDesc }}</td>
     <td>{{ product.prodCat }}</td>
@@ -27,3 +39,7 @@
     </td>
   </tr>
 </table>
+
+<div *ngIf="filteredProducts.length === 0">
+  <p>No products found for this category.</p>
+</div>

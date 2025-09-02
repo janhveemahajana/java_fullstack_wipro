@@ -58,4 +58,11 @@ public class CartController {
         cartService.removeProductFromCart(userId, productId);
         return ResponseEntity.ok().build();
     }
+    
+    // ✅ API to get cart item count for a user
+    @GetMapping("/count/{userId}")
+    public ResponseEntity<Integer> getCartCount(@PathVariable Long userId) {
+        int count = cartService.getCartItemCount(userId);
+        return ResponseEntity.ok(count);
+    }
 }

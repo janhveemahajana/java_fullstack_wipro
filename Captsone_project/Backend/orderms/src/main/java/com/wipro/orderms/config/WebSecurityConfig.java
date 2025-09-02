@@ -19,7 +19,8 @@ public class WebSecurityConfig {
 
         	.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(
- 	        auth -> auth.requestMatchers("/user/login/**").permitAll()
+ 	        auth -> auth.requestMatchers("/user/login/**","/swagger-ui/**",
+                    "/v3/api-docs/**").permitAll()
  	       .requestMatchers("/cart/**").permitAll()
            .requestMatchers("/order/**").authenticated()
             .anyRequest().authenticated()

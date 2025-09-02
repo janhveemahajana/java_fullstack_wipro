@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent {
   products: Product[] = [];
+  filteredProducts: Product[] = [];
+  searchCategory: string = '';
 
   constructor(private productService: ProductService, private router: Router) {}
 
@@ -21,9 +23,22 @@ export class AdminComponent {
   }
 
   loadProducts() {
-    this.productService
-      .getAllProducts()
-      .subscribe((data) => (this.products = data));
+    this.productService.getAllProducts().subscribe((data) => {
+      this.products = data;
+      this.filteredProducts = data; // show all initially
+    });
+  }
+
+  filterProducts() {
+    if (!this.searchCategory) {
+      this.filteredProducts = this.products;
+    } else {
+      this.filteredProducts = this.products.filter((product) =>
+        product.prodCat
+          .toLowerCase()
+          .includes(this.searchCategory.toLowerCase())
+      );
+    }
   }
 
   deleteProduct(id: number | undefined) {

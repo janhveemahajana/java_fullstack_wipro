@@ -110,4 +110,17 @@ public class CartServiceImpl implements CartService {
         cart.setTotalQty(totalQty);
         cart.setTotalPrice(totalPrice);
     }
+    
+    public int getCartItemCount(Long userId) {
+        Cart cart = cartRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("Cart not found"));
+
+        // If you store items in a map {productId: qty}
+        return cart.getProdDetails().values().stream()
+                   .mapToInt(Integer::intValue)
+                   .sum();
+
+        // Or if you store as a list of CartItem entities:
+        // return cart.getItems().stream().mapToInt(CartItem::getQuantity).sum();
+    }
 }

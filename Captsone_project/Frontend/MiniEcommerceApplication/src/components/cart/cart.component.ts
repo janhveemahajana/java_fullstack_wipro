@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   userId: number = 2;
   isLoading: boolean = false;
+  cartCount: number = 0;
 
   constructor(
     private cartService: CartService,
@@ -46,9 +47,9 @@ export class CartComponent implements OnInit {
     if (userData) {
       try {
         const user = JSON.parse(userData);
-        this.userId = user.id; 
+        this.userId = user.id;
         console.log('Cart - User ID from user data:', this.userId);
-        
+
         localStorage.setItem('userId', this.userId.toString());
       } catch (e) {
         console.error('Error parsing user data:', e);
@@ -90,7 +91,7 @@ export class CartComponent implements OnInit {
         const item: CartItem = {
           productId: pid,
           quantity: quantity,
-          product: null, 
+          product: null,
         };
 
         this.cartItems.push(item);
@@ -135,7 +136,7 @@ export class CartComponent implements OnInit {
   removeItem(productId: number) {
     this.cartService.removeFromCart(this.userId, productId).subscribe({
       next: () => {
-        this.loadCart(); 
+        this.loadCart();
       },
       error: (error) => {
         console.error('Error removing item:', error);

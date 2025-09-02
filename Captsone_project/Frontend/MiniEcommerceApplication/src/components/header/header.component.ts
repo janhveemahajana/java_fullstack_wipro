@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,26 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  constructor(private cartService: CartService, private router: Router) {}
+  cartCount = 0;
+  userId = Number(localStorage.getItem('userId'));
+
+  ngOnInit(): void {
+    this.cartService.cartCount$.subscribe((count) => {
+      console.log('Updated count in header:', count); // debug log
+      this.cartCount = count;
+    });
+    if (this.userId) {
+      this.cartService.refreshCartCount(this.userId); // load initial count
+    }
+  }
+
+  loadCartCount() {
+    this.cartService.getCartCount(this.userId).subscribe({
+      next: (count) => (this.cartCount = count),
+      error: (err) => console.error('Error loading cart count', err),
+    });
+  }
 
   goToCart() {
     this.router.navigate(['/cart']);
